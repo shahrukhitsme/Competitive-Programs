@@ -6,3 +6,4 @@ Linked List: Intersection of two linked lists
 Array: Rotate Array
 Tree: BinaryTreeInorderTraversalIterative
 Numbers: Permutation
+String: GenerateParentheses
