@@ -8,3 +8,4 @@ Tree: BinaryTreeInorderTraversalIterative
 Numbers: Permutation
 String: GenerateParentheses
 Array: TopKFrequentElements
+Array: KthSmallestElementInSortedMatrix
