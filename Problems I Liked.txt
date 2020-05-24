@@ -11,3 +11,4 @@ Array: TopKFrequentElements
 Array: KthSmallestElementInSortedMatrix
 Array: ContainerWithMostWater
 Tree: Trie
+Numbers: PerfectSquares
