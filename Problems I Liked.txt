@@ -13,3 +13,4 @@ Array: ContainerWithMostWater
 Tree: Trie
 Numbers: PerfectSquares
 Tree: LowestCommonAncestor
+Array: FindPeakElement
