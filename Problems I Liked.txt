@@ -15,4 +15,5 @@ Numbers: PerfectSquares
 Tree: LowestCommonAncestor
 Array: FindPeakElement
 Array: SearchInA2DMatrix2
-Array: LongestIncreasingSubsequneces
+Array: LongestIncreasingSubsequences
+String:LongestSubstringWithAtLeastKRepeatingCharacters
