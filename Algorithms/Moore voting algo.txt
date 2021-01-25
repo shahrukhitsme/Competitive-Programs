@@ -1,0 +1,17 @@
+Moore voting element
+
+It is an algorithm which finds the majority element in an array in
+O(n) time and
+O(1) space.
+A majority element is the element whose occurence is more that n/2, where n is the size of the array.
+
+Step 1: Finding candidate for Majority element
+Step 2: Verifying and accepting or saying there is no majority element.
+
+How to find the candidate:
+Start traversing the array and keep 2 variables which track the current candidate and it's count.
+Select first element as the candidate and set count to 1
+Move forward, and increase count only when you see the candidate, and if count becomes 0, then change the candidate and set count to 1.
+In this way, at the last only that element will be the candidate which is in majority, if there is any.
+
+Video example: https://www.youtube.com/watch?v=n5QY3x_GNDg
