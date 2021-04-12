@@ -1,89 +1,43 @@
-/* Round 1 */
+/*
+set(k, v) O(1)
+get(k) -> v O(1)
+takesnapshot() -> sid O(k)
+getValue(sid, k) -> v O(1)
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+Sid, k, v - integer
 
-class Codechef{
-    
-    public static void main (String[] args) throws java.lang.Exception{
-        String[] usernames = new String[]{"a","b", "c", "d","e"};
-        List<User> users = new ArrayList<User>();
-        for(int i=0; i<usernames.length; i++)
-            users.add(new User(usernames[i]));
-        List<User> newFriends = AddFriendship(users.get(0), users.get(1));
-        newFriends = AddFriendship(users.get(0), users.get(2));
-        newFriends = AddFriendship(users.get(1), users.get(2));
-        newFriends = AddFriendship(users.get(1), users.get(3));
-        showFriends(users.get(0));
-        showFriends(users.get(1));
-        List<User> mutuals = MutualFriends(users.get(0), users.get(1));
-        System.out.print("Mutual friends of "+users.get(0).name+" and "+users.get(1).name+" : ");
-        for(User u: mutuals)
-            System.out.print(u.name+" ");
-        System.out.println();
-        showUsers("Suggested", GetSuggestedFriends(users.get(0)));
-    }
-    
-    public static void showFriends(User user){
-        System.out.print("Friends of "+user.name+" : ");
-        for(User u: user.friends)
-            System.out.print(u.name+" ");
-        System.out.println();
-    }
-    
-    public static void showUsers(String relation, HashSet<User> users){
-        System.out.print(relation+" friends "+" : ");
-        for(User u: users)
-            System.out.print(u.name+" ");
-        System.out.println();
-    }
-    
+set(1, 3)
+set(2, 4)
+{
+  1: 3,
+  2: 4
+}
+takesnaphsot() -> 123
+set(1, 7)
+{
+  1: 7,
+  2: 4
+}
+takesnapshot() -> 101
 
-    public static List<User> AddFriendship(User u1, User u2){
-        u1.friends.add(u2);
-        u2.friends.add(u1);
-        List<User> newFriends = new ArrayList<User>();
-        newFriends.add(u1);
-        newFriends.add(u2);
-        return newFriends;
-    }
+get(1) -> 7
+getvalue(123, 1) -> 3
+getValue(101, 1) -> 7
 
-    public static List<User> MutualFriends(User u1, User u2){
-        List<User> mutuals = new ArrayList<User>();
-        HashSet<User> friends = u1.friends;
-        for(User u: friends){
-            if(isFriend(u, u2))
-                mutuals.add(u);
-        }
-        return mutuals;
-    }
+HashMap<Integer, HashMap<Integer, Integer>> snapmap O(sk)
+HashMap<Integer, Integer> kvmap O(k)
 
-    public static boolean isFriend(User u1, User u2){
-        return u1.friends.contains(u2);
-    }
-
-    public static HashSet<User> GetSuggestedFriends(User u1){
-        HashSet<User> suggestedFriends = new HashSet<User>();
-        for(User u: u1.friends){
-            HashSet<User> fsof = u.friends;
-            for(User fof: fsof){
-                if(!u1.friends.contains(fof))
-                    suggestedFriends.add(fof);
-            }
-        }
-        suggestedFriends.remove(u1);
-        return suggestedFriends;
-    }
+{
+  1: {
+‘Current’:3,
+‘123’:3
+},
+  2: {
+‘current’:4
+‘123’:4
+}
 }
 
-class User{
-    public User(String name){
-        this.name = name;
-        friends = new HashSet<User>();
+System Design Question. How to debbug latency in system. How to find issue with slowness of DB?
 
-    }
-
-    public String name;
-    public HashSet<User> friends;
-}
+*/
