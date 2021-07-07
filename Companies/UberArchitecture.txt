@@ -1,0 +1,22 @@
+Calender
+Feature: scheduling meetings
+	   Invitation
+	   Account
+
+A data structure which can store the meetings across 24 hrs.
+
+Array having 24 * 4 = 96 slots signifying 15 mins slot.
+It is to store the availability of a person.
+
+To check conflict, we will have to check all the slots, in the time period, I am querying for.
+
+P1 meetings = [ 0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,0,0,...];
+P2 meetings = [ 0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,0,0,...];
+P3 meetings = [ 0,0,0,0,1,1,0,0,0,1,1,0,1,1,1,0,0,...];
+1 means that 15 mins slot is occupied for that person and 0 means it is not.
+If we do an OR operation across all schedules, we will get the slots free for all the people.
+Complexity is O(n)
+
+For better memory usage, can store after converting to decimal in the database.
+
+For UI, I would use something like React, beause it would mainly be a single page application, only part of the application would require re rendering, and there will be a lot of re usable components in the calendar.
