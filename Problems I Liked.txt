@@ -26,3 +26,4 @@ GeeksForGeeks: Array: LargestSubarrayOf0sAnd1s
 GeeksForGeeks: ZeroSumSubarray
 GeeksForGeeks: MaximumXorOfTwoNumbersInArray
 Array: CountSquareSubmatricesWithAllOnes *
+Numbers: New21Game
