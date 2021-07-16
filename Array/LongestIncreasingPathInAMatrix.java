@@ -40,3 +40,37 @@ class Solution {
         return answers[i][j];
     }
 }
+//Implemented this solution again a year later.
+class Solution2 {
+    int[][] dp;
+    public int longestIncreasingPath(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        dp = new int[m][n];
+        int res = 1;
+        for(int i=0; i<m; i++)
+            Arrays.fill(dp[i], -1);
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                int pathLen = traverse(matrix, i, j, -1);
+                if(pathLen>res)
+                    res = pathLen;
+            }
+        }
+        return res;
+    }
+    
+    public int traverse(int[][] matrix, int i, int j, int lastVal){
+        if(i<0 || j<0 || i>=matrix.length || j>=matrix[0].length || matrix[i][j] <= lastVal)
+            return 0;
+        if(dp[i][j] != -1)
+            return dp[i][j];
+        int down = traverse(matrix, i+1, j, matrix[i][j]);
+        int top = traverse(matrix, i-1, j, matrix[i][j]);
+        int right = traverse(matrix, i, j+1, matrix[i][j]);
+        int left = traverse(matrix, i, j-1, matrix[i][j]);
+        int max = Math.max(Math.max(top, down), Math.max(left, right))+1;
+        dp[i][j] = max;
+        return max;
+    }
+}
